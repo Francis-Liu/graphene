@@ -84,7 +84,7 @@ run-native: all
 
 .PHONY: run-graphene
 run-graphene: all
-	$(GRAPHENE) ./label_image -m inception_v3.tflite -i image.bmp -t 4
+	$(GRAPHENE) ./label_image -m inception_v3.tflite -i image.bmp
 
 .PHONY: clean
 clean:
@@ -99,10 +99,10 @@ distclean: clean
 BAZEL_INSTALLER_HASH=17ab70344645359fd4178002f367885e9019ae7507c9c1ade8220f3628383444
 .PHONY: install-dependencies-ubuntu
 install-dependencies-ubuntu:
-	apt-get update
-	apt-get install -y python-dev python-pip wget git
+	sudo apt-get update
+	sudo apt-get install -y python-dev python-pip wget git
 	# https://docs.bazel.build/versions/master/install-ubuntu.html
-	apt-get install -y pkg-config zip g++ zlib1g-dev unzip python
+	sudo apt-get install -y pkg-config zip g++ zlib1g-dev unzip python
 	../common_tools/download --output bazel-0.16.1-installer-linux-x86_64.sh --sha256 $(BAZEL_INSTALLER_HASH)\
 		--url https://github.com/bazelbuild/bazel/releases/download/0.16.1/bazel-0.16.1-installer-linux-x86_64.sh
 	chmod +x bazel-0.16.1-installer-linux-x86_64.sh

@@ -2,7 +2,7 @@
 
 loader.preload = "file:{{ graphene.libos }}"
 libos.entrypoint = "label_image"
-loader.log_level = "{{ log_level }}"
+loader.log_level = ""
 
 loader.env.LD_LIBRARY_PATH = "/lib:{{ arch_libdir }}:/usr/{{ arch_libdir }}:."
 loader.env.PATH = "/bin:/usr/bin"
@@ -22,8 +22,9 @@ fs.mount.lib3.path = "/usr{{ arch_libdir }}"
 fs.mount.lib3.uri = "file:/usr{{ arch_libdir }}"
 
 sgx.nonpie_binary = true
-sgx.enclave_size = "512M"
-sgx.thread_num = 16
+sgx.enclave_size = "4G"
+sgx.thread_num = 10
+sgx.debug = false
 
 sgx.trusted_files.label_image = "file:label_image"
 sgx.trusted_files.runtime = "file:{{ graphene.runtimedir() }}/"

@@ -2,7 +2,7 @@
 
 loader.preload = "file:{{ graphene.libos }}"
 libos.entrypoint = "label_image"
-loader.log_level = ""
+loader.log_level = "none"
 
 loader.env.LD_LIBRARY_PATH = "/lib:{{ arch_libdir }}:/usr/{{ arch_libdir }}:."
 loader.env.PATH = "/bin:/usr/bin"
@@ -35,4 +35,6 @@ sgx.trusted_files.libtensorflowframework = "file:libtensorflow_framework.so"
 sgx.trusted_files.model = "file:inception_v3.tflite"
 sgx.trusted_files.labels = "file:labels.txt"
 
-sgx.allowed_files.image = "file:image.bmp"
+sgx.allowed_files = [
+  "file:image.bmp",
+]

@@ -100,7 +100,7 @@ BAZEL_INSTALLER_HASH=17ab70344645359fd4178002f367885e9019ae7507c9c1ade8220f36283
 .PHONY: install-dependencies-ubuntu
 install-dependencies-ubuntu:
 	sudo apt-get update
-	sudo apt-get install -y python-dev python-pip wget git
+	sudo apt-get install -y python3-dev python3-pip wget git
 	# https://docs.bazel.build/versions/master/install-ubuntu.html
 	sudo apt-get install -y pkg-config zip g++ zlib1g-dev unzip python
 	../common_tools/download --output bazel-0.16.1-installer-linux-x86_64.sh --sha256 $(BAZEL_INSTALLER_HASH)\
